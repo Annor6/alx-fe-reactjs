@@ -3,24 +3,60 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://via.placeholder.com/300",
+    "ingredients": ["Spaghetti", "Eggs", "Parmesan Cheese", "Bacon", "Black Pepper"],
+    "instructions": [
+      "Boil the spaghetti until al dente.",
+      "Fry the bacon until crispy.",
+      "Mix eggs and parmesan cheese in a bowl.",
+      "Combine spaghetti with bacon and remove from heat.",
+      "Quickly mix in egg-cheese mixture and stir well.",
+      "Serve with black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken cooked in a smooth buttery and creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://via.placeholder.com/300",
+    "ingredients": ["Chicken", "Tomatoes", "Cream", "Butter", "Spices", "Onion", "Garlic"],
+    "instructions": [
+      "Marinate chicken with spices and yogurt.",
+      "Grill chicken until cooked.",
+      "Cook onions, garlic, and tomatoes in butter.",
+      "Add spices and cream to form a sauce.",
+      "Add grilled chicken to sauce and simmer.",
+      "Serve hot with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Jollof Rice",
     "summary": "A popular West African rice dish cooked in a rich tomato sauce with spices.",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://via.placeholder.com/300",
+    "ingredients": ["Rice", "Tomatoes", "Onion", "Pepper", "Vegetable Oil", "Spices"],
+    "instructions": [
+      "Blend tomatoes, onions, and pepper into a paste.",
+      "Cook the paste in oil until thick.",
+      "Add spices and water, then bring to boil.",
+      "Add rice and cook until tender.",
+      "Serve with chicken or fish."
+    ]
   },
   {
     "id": 4,
     "title": "Pancakes",
     "summary": "Fluffy pancakes served with syrup, butter, and fresh fruits.",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://via.placeholder.com/300",
+    "ingredients": ["Flour", "Milk", "Eggs", "Sugar", "Baking Powder", "Butter"],
+    "instructions": [
+      "Mix flour, sugar, and baking powder in a bowl.",
+      "Add milk and eggs, then whisk until smooth.",
+      "Heat a pan and melt butter.",
+      "Pour batter and cook until bubbles form.",
+      "Flip and cook until golden brown.",
+      "Serve with syrup."
+    ]
   }
 ]
+
