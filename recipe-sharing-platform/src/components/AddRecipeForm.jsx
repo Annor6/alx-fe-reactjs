@@ -4,43 +4,64 @@ function AddRecipeForm() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
-  const [error, setError] = useState("");
+
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    let newErrors = {};
+
+    if (!title.trim()) {
+      newErrors.title = "Recipe title is required.";
+    }
+
+    if (!ingredients.trim()) {
+      newErrors.ingredients = "Ingredients are required.";
+    } else {
+      const ingredientList = ingredients
+        .split("\n")
+        .map((item) => item.trim())
+        .filter((item) => item !== "");
+
+      if (ingredientList.length < 2) {
+        newErrors.ingredients = "Please enter at least two ingredients.";
+      }
+    }
+
+    if (!steps.trim()) {
+      newErrors.steps = "Preparation steps are required.";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!title || !ingredients || !steps) {
-      setError("All fields are required.");
+    if (!validate()) {
       return;
     }
-
-    const ingredientList = ingredients
-      .split("\n")
-      .map((item) => item.trim())
-      .filter((item) => item !== "");
-
-    if (ingredientList.length < 2) {
-      setError("Please enter at least two ingredients (one per line).");
-      return;
-    }
-
-    setError("");
 
     const newRecipe = {
       id: Date.now(),
-      title,
-      ingredients: ingredientList,
+      title: title.trim(),
+      ingredients: ingredients
+        .split("\n")
+        .map((item) => item.trim())
+        .filter((item) => item !== ""),
       instructions: steps
         .split("\n")
         .map((step) => step.trim())
         .filter((step) => step !== ""),
     };
 
-    console.log("New Recipe Submitted:", newRecipe);
+    console.log("Recipe Submitted:", newRecipe);
 
     setTitle("");
     setIngredients("");
     setSteps("");
+    setErrors({});
   };
 
   return (
@@ -53,12 +74,7 @@ function AddRecipeForm() {
           Add New Recipe
         </h2>
 
-        {error && (
-          <p className="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm">
-            {error}
-          </p>
-        )}
-
+        {/* Recipe Title */}
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">
             Recipe Title
@@ -70,8 +86,12 @@ function AddRecipeForm() {
             className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
             placeholder="Enter recipe title"
           />
+          {errors.title && (
+            <p className="text-red-600 text-sm mt-1">{errors.title}</p>
+          )}
         </div>
 
+        {/* Ingredients */}
         <div className="mb-4">
           <label className="block text-gray-700 font-medium mb-2">
             Ingredients (one per line)
@@ -80,10 +100,14 @@ function AddRecipeForm() {
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
             className="w-full border border-gray-300 rounded-lg p-2 h-28 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Example: \n2 eggs\n1 cup flour"
+            placeholder="Example:&#10;2 eggs&#10;1 cup flour"
           ></textarea>
+          {errors.ingredients && (
+            <p className="text-red-600 text-sm mt-1">{errors.ingredients}</p>
+          )}
         </div>
 
+        {/* Preparation Steps */}
         <div className="mb-6">
           <label className="block text-gray-700 font-medium mb-2">
             Preparation Steps (one per line)
@@ -92,8 +116,11 @@ function AddRecipeForm() {
             value={steps}
             onChange={(e) => setSteps(e.target.value)}
             className="w-full border border-gray-300 rounded-lg p-2 h-28 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Example:\nMix ingredients\nBake for 20 minutes"
+            placeholder="Example:&#10;Mix ingredients&#10;Bake for 20 minutes"
           ></textarea>
+          {errors.steps && (
+            <p className="text-red-600 text-sm mt-1">{errors.steps}</p>
+          )}
         </div>
 
         <button
@@ -108,3 +135,4 @@ function AddRecipeForm() {
 }
 
 export default AddRecipeForm;
+
