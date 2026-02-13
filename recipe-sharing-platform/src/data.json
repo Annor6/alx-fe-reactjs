@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken cooked in a smooth buttery and creamy tomato based gravy.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 3,
+    "title": "Jollof Rice",
+    "summary": "A popular West African rice dish cooked in a rich tomato sauce with spices.",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 4,
+    "title": "Pancakes",
+    "summary": "Fluffy pancakes served with syrup, butter, and fresh fruits.",
+    "image": "https://via.placeholder.com/300"
+  }
+]
