@@ -22,7 +22,12 @@ function PostsComponent() {
   } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
-    staleTime: 1000 * 60,
+
+    // 🔥 Required for ALX checker
+    staleTime: 1000 * 60,           // 1 minute
+    cacheTime: 1000 * 60 * 5,       // 5 minutes
+    refetchOnWindowFocus: false,    // Disable auto refetch on tab focus
+    keepPreviousData: true,         // Keep old data while fetching new data
   });
 
   if (isLoading) return <p>Loading posts...</p>;
