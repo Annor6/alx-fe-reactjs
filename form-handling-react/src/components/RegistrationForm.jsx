@@ -6,32 +6,30 @@ function RegistrationForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  const validate = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     let newErrors = {};
 
-    if (!username.trim()) {
+    if (!username) {
       newErrors.username = "Username is required";
     }
 
-    if (!email.trim()) {
+    if (!email) {
       newErrors.email = "Email is required";
     }
 
-    if (!password.trim()) {
+    if (!password) {
       newErrors.password = "Password is required";
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
 
-    if (!validate()) return;
-
-    const userData = { username, email, password };
-    console.log("User Registered:", userData);
+    console.log("User Registered:", { username, email, password });
 
     setUsername("");
     setEmail("");
