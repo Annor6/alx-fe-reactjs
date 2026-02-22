@@ -12,10 +12,13 @@ const TodoList = () => {
     e.preventDefault();
     if (!newTodo.trim()) return;
 
-    setTodos([
-      ...todos,
-      { id: Date.now(), text: newTodo, completed: false },
-    ]);
+    const newItem = {
+      id: Date.now(),
+      text: newTodo,
+      completed: false,
+    };
+
+    setTodos([...todos, newItem]);
     setNewTodo("");
   };
 
@@ -56,6 +59,7 @@ const TodoList = () => {
                 textDecoration: todo.completed
                   ? "line-through"
                   : "none",
+                cursor: "pointer",
               }}
             >
               {todo.text}
